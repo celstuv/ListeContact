@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ListContact } from './Data';
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck'
 
 
 const List = () => {
@@ -16,25 +18,29 @@ const List = () => {
 
   return (
     <React.Fragment>
-      <h1>Liste des contacts téléphoniques</h1>
       <div className="container">
-        {person.map((list, index) => {
-          const { id, name, numero, photo } = list;
-          return (
-            <div className="contact" key={id}>
-              <div className="Image">
-                <img src={photo }alt={name} />
-              </div>
-              <div className="Information">
-                <h4>{name}</h4>
-                <p>{numero}</p>
-              </div>
-              <button type="button" className="btn btn-primary" onClick={() => handleRemove(list)}>Delete</button>
-            </div>
-          );
-        })}
-        <button type="button" className="btn btn-danger" onClick={() => setPerson([])}>Clear List</button>
-      </div>
+        <h1>Liste des contacts téléphoniques</h1>
+        <div className="row justify-content-center">
+            {person.map((list, index) => {
+              const { id, name, numero, photo } = list;
+              return (
+                <CardDeck>
+                  <Card style={{ width: '18rem' }} key={id}>
+                    <Card.Img variant="top" src={photo} alt={name} className="w-75"/>
+                    <Card.Body style={{ color: 'black' }}>
+                      <Card.Title>{name}</Card.Title>
+                      <Card.Text>{numero}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <button type="button" className="btn btn-primary" onClick={() => handleRemove(list)}>Delete</button>
+                    </Card.Footer>
+                  </Card>
+                </CardDeck>
+              );
+            })}
+        </div>
+      <button type="button" className="btn btn-danger" onClick={() => setPerson([])}>Clear List</button>
+    </div>
     </React.Fragment>
   );
 };
