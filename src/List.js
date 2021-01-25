@@ -16,8 +16,8 @@ const List = () => {
 
   return (
     <React.Fragment>
+      <h1>Liste des contacts téléphoniques</h1>
       <div className="container">
-        <h1>Liste des contact téléphonques</h1>
         {person.map((list, index) => {
           const { id, name, numero, photo } = list;
           return (
@@ -26,15 +26,15 @@ const List = () => {
                 <img src={photo }alt={name} />
               </div>
               <div className="Information">
-                <p>{name}</p>
+                <h4>{name}</h4>
                 <p>{numero}</p>
               </div>
-              <button type="button" onClick={() => handleRemove(list)}>Delete</button>
+              <button type="button" className="btn btn-primary" onClick={() => handleRemove(list)}>Delete</button>
             </div>
           );
         })}
+        <button type="button" className="btn btn-danger" onClick={() => setPerson([])}>Clear List</button>
       </div>
-      <button type="button" onClick={() => setPerson([])}>Clear List</button>
     </React.Fragment>
   );
 };
