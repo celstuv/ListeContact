@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ListContact } from './Data';
 import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 
@@ -18,28 +19,24 @@ const List = () => {
 
   return (
     <React.Fragment>
-      <div className="container">
-        <h1>Liste des contacts téléphoniques</h1>
+      <div className="container" style={{ color: "black" }}>
+        <h1 style={{ marginBottom: "5rem" }}>Liste des contacts téléphoniques</h1>
         <div className="row justify-content-center">
             {person.map((list, index) => {
               const { id, name, numero, photo } = list;
               return (
-                <CardDeck>
-                  <Card style={{ width: '18rem' }} key={id}>
-                    <Card.Img variant="top" src={photo} alt={name} className="w-75"/>
-                    <Card.Body style={{ color: 'black' }}>
-                      <Card.Title>{name}</Card.Title>
-                      <Card.Text>{numero}</Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                      <button type="button" className="btn btn-primary" onClick={() => handleRemove(list)}>Delete</button>
-                    </Card.Footer>
-                  </Card>
-                </CardDeck>
+                <div className="col my-3" key={id} >
+                  <div className="card" style={{ width: "10rem" }}>
+                    <Image src={photo} alt={name} rounded  className="" />
+                    <h4>{name}</h4>
+                    <p style={{ fontSize: "0.75rem" }}> Numéro : {numero}</p>
+                    <button type="button" className="btn btn-primary" onClick={() => handleRemove(list)}>Supprimer contact</button>
+                  </div>
+                </div>
               );
             })}
         </div>
-      <button type="button" className="btn btn-danger" onClick={() => setPerson([])}>Clear List</button>
+      <button type="button" className="btn btn-danger" onClick={() => setPerson([])}>Supprimre tous les contacts</button>
     </div>
     </React.Fragment>
   );

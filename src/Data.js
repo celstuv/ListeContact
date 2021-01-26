@@ -27,12 +27,12 @@ export const ListContact = [
     id: 5,
     name: 'Henriette S.',
     numero: '06 XX XX XX XX',
-    photo: 'https://cdn.pixabay.com/photo/2020/08/21/08/46/african-5505598__340.jpg',
+    photo: 'https://cdn.pixabay.com/photo/2017/04/24/05/10/portrait-2255525__340.jpg',
   },
   {
     id: 6,
     name: 'Nadia Z.',
     numero: '06 XX XX XX XX',
-    photo: 'https://cdn.pixabay.com/photo/2017/08/26/11/21/pretty-2682798__340.jpg',
+    photo: 'https://cdn.pixabay.com/photo/2016/08/02/16/30/mentor-1563993__340.jpg',
   },
 ];
